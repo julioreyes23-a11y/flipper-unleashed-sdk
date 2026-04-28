@@ -23,17 +23,13 @@ jobs:
           binutils-arm-none-eabi python3 python3-pip \
           libnewlib-arm-none-eabi
 
-    - name: Install Python dependencies
-      run: |
-        pip3 install -r requirements.txt || true
-
     - name: Build full Unleashed DEV firmware
       run: |
-        ./fbt firmware_all
+        python3 ./scripts/fbt firmware_all
 
     - name: Build full SDK
       run: |
-        ./fbt sdk
+        python3 ./scripts/fbt sdk
 
     - name: Package SDK
       run: |
